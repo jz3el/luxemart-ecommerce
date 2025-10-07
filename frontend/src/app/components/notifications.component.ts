@@ -49,15 +49,16 @@ import { Subscription } from 'rxjs';
     }
     
     .notification {
-      background: linear-gradient(145deg, var(--charcoal), var(--deep-black));
-      border: 1px solid rgba(0,255,136,0.3);
-      border-radius: 10px;
-      margin-bottom: 10px;
+      background: var(--gradient-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      margin-bottom: 12px;
       padding: 0;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 8px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
       overflow: hidden;
       position: relative;
-      animation: slideIn 0.3s ease-out;
+      animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      backdrop-filter: blur(20px);
     }
     
     .notification-content {
@@ -80,28 +81,45 @@ import { Subscription } from 'rxjs';
     
     .notification-progress {
       height: 3px;
-      background: var(--primary-green);
+      background: var(--gradient-tertiary);
       width: 100%;
       animation: progress linear forwards;
       position: absolute;
       bottom: 0;
       left: 0;
+      border-radius: 0 0 16px 16px;
     }
     
     .notification-success {
-      border-left: 4px solid #28a745;
+      border-left: 4px solid var(--accent-green);
+    }
+    
+    .notification-success .notification-progress {
+      background: var(--accent-green);
     }
     
     .notification-error {
-      border-left: 4px solid #dc3545;
+      border-left: 4px solid var(--accent-pink);
+    }
+    
+    .notification-error .notification-progress {
+      background: var(--accent-pink);
     }
     
     .notification-warning {
-      border-left: 4px solid #ffc107;
+      border-left: 4px solid var(--accent-orange);
+    }
+    
+    .notification-warning .notification-progress {
+      background: var(--accent-orange);
     }
     
     .notification-info {
-      border-left: 4px solid #17a2b8;
+      border-left: 4px solid var(--accent-blue);
+    }
+    
+    .notification-info .notification-progress {
+      background: var(--accent-blue);
     }
     
     .btn-close-white {
