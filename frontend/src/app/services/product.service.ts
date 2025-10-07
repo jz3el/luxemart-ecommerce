@@ -10,10 +10,17 @@ export interface Product {
   compareAtPrice?: number;
   sku: string;
   stockQuantity: number;
+  lowStockThreshold: number;
   imageUrl?: string;
   categoryId: number;
   categoryName: string;
   isFeatured: boolean;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+  weight?: number;
+  tags?: string;
+  imageAlt?: string;
 }
 
 export interface PagedResult<T> {

@@ -4,6 +4,9 @@ import { RegisterComponent } from './components/register.component';
 import { ProductListComponent } from './components/product-list.component';
 import { CartComponent } from './components/cart.component';
 import { AdminDashboardComponent } from './components/admin-dashboard.component';
+import { AdminProductsComponent } from './components/admin-products.component';
+import { AdminUsersComponent } from './components/admin-users.component';
+import { AdminOrdersComponent } from './components/admin-orders.component';
 import { ProfileComponent } from './components/profile.component';
 
 export const routes: Routes = [
@@ -20,6 +23,9 @@ export const routes: Routes = [
   // Admin routes (require admin role)
   { path: 'admin', redirectTo: 'admin/dashboard' },
   { path: 'admin/dashboard', component: AdminDashboardComponent, title: 'Admin Dashboard - LuxeMart' },
+  { path: 'admin/products', component: AdminProductsComponent, title: 'Product Management - LuxeMart' },
+  { path: 'admin/users', component: AdminUsersComponent, title: 'User Management - LuxeMart' },
+  { path: 'admin/orders', component: AdminOrdersComponent, title: 'Order Management - LuxeMart' },
   
   // Fallback route
   { path: '**', redirectTo: '', pathMatch: 'full' }

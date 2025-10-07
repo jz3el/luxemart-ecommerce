@@ -431,7 +431,26 @@ export class ProductListComponent implements OnInit {
   }
 
   getProductImage(product: Product): string {
-    return product.imageUrl || 'https://via.placeholder.com/300x200?text=' + encodeURIComponent(product.name);
+    if (product.imageUrl && product.imageUrl !== '') {
+      return product.imageUrl;
+    }
+    
+    // Generate a beautiful placeholder based on product category/name
+    const productName = product.name.toLowerCase();
+    if (productName.includes('laptop') || productName.includes('computer')) {
+      return 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop&crop=center';
+    } else if (productName.includes('coffee') || productName.includes('mug')) {
+      return 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=300&fit=crop&crop=center';
+    } else if (productName.includes('notebook') || productName.includes('book')) {
+      return 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=300&fit=crop&crop=center';
+    } else if (productName.includes('phone') || productName.includes('mobile')) {
+      return 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop&crop=center';
+    } else if (productName.includes('watch')) {
+      return 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop&crop=center';
+    } else {
+      // Default beautiful placeholder
+      return `https://picsum.photos/400/300?random=${product.productId}&blur=1`;
+    }
   }
 
   getButtonText(product: Product): string {
